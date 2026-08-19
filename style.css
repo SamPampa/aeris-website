@@ -767,6 +767,8 @@ body {
 
 /* --- RESPONSIVE OPTIMIZATION PER MOBILE & TABLET --- */
 
+/* --- RESPONSIVE OPTIMIZATION PER MOBILE & TABLET --- */
+
 @media (max-width: 1100px) {
   .disciplines-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -785,7 +787,6 @@ body {
   .join-content { padding: 40px 30px; }
   .join-content h2 { font-size: 2.2rem; }
   
-  /* Corretto: su mobile i dati operativi vanno in colonna e non di lato */
   .join-telemetry {
     border-left: none;
     border-top: 1px solid var(--surface-border);
@@ -796,7 +797,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* SOLUZIONE VUOTI: Riduce drasticamente i margini verticali tra le sezioni su iPhone */
+  /* Riduzione margini verticali tra le sezioni */
   .mission-section, 
   .roadmap-section, 
   .disciplines-section, 
@@ -809,15 +810,68 @@ body {
   .mission-header h2 { font-size: 2.2rem; }
   .mission-lead { font-size: 1.15rem; }
   .mission-subtext { font-size: 0.95rem; }
-  .disciplines-grid { grid-template-columns: 1fr; }
+
+  /* 1. Divisioni operative: 2 colonne compatte */
+  .disciplines-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px;
+  }
+
+  .discipline-card .card-image {
+    height: 140px; /* Riduce l'altezza dell'immagine */
+  }
+
+  .discipline-card .card-content {
+    padding: 16px 12px;
+  }
+
+  .discipline-card .card-content h3 {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+  }
+
+  .discipline-card .card-content p {
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+
+  /* 2. Notizie in formato orizzontale compatto (Foto a sinistra, testo a destra) */
+  .news-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  .news-card {
+    flex-direction: row !important;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .news-img {
+    width: 100px !important;
+    height: 80px !important;
+    min-width: 100px;
+    border-radius: 8px;
+    border-bottom: none !important;
+  }
+
+  .news-text {
+    padding: 0 0 0 14px !important;
+    justify-content: center;
+  }
+
+  .news-title {
+    font-size: 0.88rem !important;
+    margin-bottom: 6px !important;
+    -webkit-line-clamp: 2 !important;
+  }
+
+  .news-date {
+    font-size: 0.7rem !important;
+  }
 }
 
 @media (max-width: 650px) {
-  .timeline-container { grid-template-columns: 1fr; gap: 30px; }
+  .timeline-container { grid-template-columns: 1fr; gap: 20px; }
   .hero-cta { flex-direction: column; gap: 12px; }
-}
-
-@media (max-width: 600px) { 
-  /* Le notizie su iPhone si mettono a colonna singola pulita, senza disperdersi */
-  .news-grid { grid-template-columns: 1fr !important; gap: 16px; }
 }
