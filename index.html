@@ -50,54 +50,158 @@
     </div>
   </section>
 
+  <!-- Sezione Roadmap / Flight Plan -->
+  <section id="roadmap" class="roadmap-section scroll-reveal">
+    <div class="section-heading">
+      <span class="section-tag" style="display: block; font-family: monospace; color: var(--pantone-blue); letter-spacing: 2px; margin-bottom: 10px;">FLIGHT PLAN &amp; MILESTONES</span>
+      <h2>Roadmap di Sviluppo</h2>
+    </div>
+
+    <div class="timeline-container">
+      <!-- Fase 01 -->
+      <div class="timeline-item">
+        <div class="timeline-marker">
+          <!-- Qui ho aggiunto "active-dot" -->
+          <span class="marker-dot active-dot"></span>
+          <span class="marker-line"></span>
+        </div>
+        <!-- Qui ho aggiunto "active-phase" -->
+        <div class="timeline-content active-phase">
+          <!-- Qui ho aggiunto "active-text" -->
+          <div class="phase-meta active-text">FASE 01 &middot; IN PROGRESS</div>
+          <h3>System Architecture &amp; Setup</h3>
+          <ul class="timeline-list">
+            <li><strong>Setup Operativo:</strong> Definizione dell'architettura di base, pipeline di calcolo CAD/FEM/CFD e protocolli di controllo versione.</li>
+            <li><strong>Strutturazione Team:</strong> Schieramento delle divisioni tecniche (Aerodinamica, Strutture, Avionica, Software).</li>
+            <li><strong>Network Istituzionale:</strong> Accesso a banchi di lavoro universitari e convenzioni tecniche per licenze software, laboratori e componentistica.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Fase 02 -->
+      <div class="timeline-item">
+        <div class="timeline-marker">
+          <span class="marker-dot"></span>
+          <span class="marker-line"></span>
+        </div>
+        <div class="timeline-content">
+          <div class="phase-meta">FASE 02 &middot; 0.3 &ndash; 0.5 MACH</div>
+          <h3>Prototyping &amp; Envelope Expansion</h3>
+          <ul class="timeline-list">
+            <li><strong>Dimostratori di Scala:</strong> Realizzazione di vettori subsonici per validare in aria la correlazione con i modelli numerici.</li>
+            <li><strong>Avionica &amp; DAQ:</strong> Validazione delle superfici di controllo, acquisizione dati ad alta frequenza e telemetria in tempo reale.</li>
+            <li><strong>Stress Test Strutturali:</strong> Prove sperimentali di carico statico e dinamico sui laminati compositi e componenti critici.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Fase 03 -->
+      <div class="timeline-item">
+        <div class="timeline-marker">
+          <span class="marker-dot"></span>
+          <span class="marker-line"></span>
+        </div>
+        <div class="timeline-content">
+          <div class="phase-meta">FASE 03 &middot; MACH 1.0+</div>
+          <h3>Transonic Flight &amp; Supersonic Target</h3>
+          <ul class="timeline-list">
+            <li><strong>Shock Wave Analysis:</strong> Gestione fluidodinamica delle instabilità e delle onde d'urto nei regimi ad alta comprimibilità.</li>
+            <li><strong>Propulsione &amp; Struttura:</strong> Integrazione avanzata del sistema propulsivo e ottimizzazione aerotermomeccanica del telaio.</li>
+            <li><strong>Flight Control Attivo:</strong> Campagna di test con algoritmi dedicati di stabilizzazione d'assetto in tempo reale.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Fase 04 -->
+      <div class="timeline-item">
+        <div class="timeline-marker">
+          <span class="marker-dot"></span>
+        </div>
+        <div class="timeline-content">
+          <div class="phase-meta">FASE 04 &middot; KNOWLEDGE &amp; COLLABORATION</div>
+          <h3>Applied Research &amp; Industrial Ecosystem</h3>
+          <ul class="timeline-list">
+            <li><strong>Polo di Sperimentazione:</strong> Consolidamento del team come punto di riferimento studentesco per la prototipazione supersonica.</li>
+            <li><strong>Ricerca Accademica:</strong> Sviluppo di tesi sperimentali, paper scientifici e attività congiunte con i laboratori d'ateneo.</li>
+            <li><strong>Partnership Tecnologiche:</strong> Sviluppo congiunto di soluzioni e validazione sul campo con realtà del settore aerospaziale.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Sezione Discipline con immagini locali -->
+<!-- Sezione Divisioni Operative (6 Reparti) -->
   <section id="disciplines" class="disciplines-section">
     <div class="section-heading scroll-reveal">
-      <h2>Aree di Ricerca</h2>
+      <span class="section-tag" style="display: block; font-family: monospace; color: var(--pantone-blue); letter-spacing: 2px; margin-bottom: 10px;">AREE DI RICERCA & GESTIONE</span>
+      <h2>Divisioni Operative</h2>
     </div>
     
     <div class="disciplines-grid">
-      <!-- Disciplina 1: Aerodinamica -->
+      <!-- 1. Strutture -->
+      <div class="discipline-card scroll-reveal">
+        <div class="card-image">
+          <img src="Photos_AERIS/carbon_fiber.jpg" alt="Materiali Compositi">
+        </div>
+        <div class="card-content">
+          <h3>Strutture & Materiali</h3>
+          <p>Modellazione CAD parametrica, validazione delle scelte progettuali, calcolo strutturale FEM e test di fatica sui materiali per resistere ad alti carichi.</p>
+        </div>
+      </div>
+
+      <!-- 2. Aerodinamica -->
       <div class="discipline-card scroll-reveal">
         <div class="card-image">
           <img src="Photos_AERIS/CFD.jpg" alt="Simulazione CFD">
         </div>
         <div class="card-content">
-          <h3>Aerospazio & Strutture</h3>
-          <p>Analisi FEM, aerodinamica supersonica e simulazioni CFD. Ottimizzazione di profili alari e architetture strutturali ad alte prestazioni.</p>
+          <h3>Aerodinamica & Propulsione</h3>
+          <p>Simulazioni CFD avanzate, studio e ottimizzazione dei profili alari. Analisi termofluidodinamica e integrazione del sistema propulsivo nel telaio.</p>
         </div>
       </div>
 
-      <!-- Disciplina 2: Robotica -->
+      <!-- 3. Hardware (Immagine Unsplash: Elettronica/PCB) -->
       <div class="discipline-card scroll-reveal">
         <div class="card-image">
-          <img src="Photos_AERIS/UAV.jpg" alt="UAV Drone">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800" alt="Progettazione Elettronica">
         </div>
         <div class="card-content">
-          <h3>Robotica & Sistemi Autonomi</h3>
-          <p>Sviluppo di droni, vettori non pilotati e logiche di automazione. Integrazione di sensori per il volo autonomo e la navigazione.</p>
+          <h3>Elettronica & Avionica</h3>
+          <p>Progettazione di schede logiche dedicate, implementazione della sensoristica di bordo, cablaggi schermati e sistemi hardware per l'acquisizione dati.</p>
         </div>
       </div>
 
-      <!-- Disciplina 3: Propulsione -->
+      <!-- 4. Software -->
       <div class="discipline-card scroll-reveal">
         <div class="card-image">
-          <img src="Photos_AERIS/turbine.jpg" alt="Modello CAD Turbina">
+          <img src="Photos_AERIS/UAV.jpg" alt="Sistemi Autonomi" class="img-uav">
         </div>
         <div class="card-content">
-          <h3>Propulsione & Meccanica</h3>
-          <p>Calcoli termofluidodinamici, progettazione di turbine e banchi prova. Analisi dello stress meccanico sui componenti di spinta.</p>
+          <h3>Software & Controlli</h3>
+          <p>Sviluppo del codice di volo, implementazione di algoritmi per la stabilizzazione e il controllo spaziale, gestione e pulizia dei dati acquisiti durante i test.</p>
         </div>
       </div>
 
-      <!-- Disciplina 4: Elettronica / Materiali -->
+      <!-- 5. Media & Branding (Immagine Unsplash: Setup Creativo/Web) -->
       <div class="discipline-card scroll-reveal">
         <div class="card-image">
-          <img src="Photos_AERIS/carbon_fiber.jpg" alt="Texture Fibra di Carbonio">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800" alt="Sviluppo e Grafica">
         </div>
         <div class="card-content">
-          <h3>Elettronica & Materiali</h3>
-          <p>Integrazione di compositi avanzati, sistemi embedded, telemetria in tempo reale e firmware di controllo per l'elaborazione dati.</p>
+          <h3>Media & Branding</h3>
+          <p>Gestione integrale del sito web, produzione di grafica e materiale fotografico. Promozione dell'identità dell'associazione e organizzazione eventi in campus.</p>
+        </div>
+      </div>
+
+      <!-- 6. Finanza & Partnership (Immagine Unsplash: Dati/Strategia) -->
+      <div class="discipline-card scroll-reveal">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" alt="Gestione Dati Finanziari">
+        </div>
+        <div class="card-content">
+          <h3>Corporate & Partnership</h3>
+          <p>Ricerca vitale di sponsor tecnici ed economici. Gestione della documentazione per l'Ateneo, stesura bilanci e allocazione strategica dei fondi ai reparti tecnici.</p>
         </div>
       </div>
     </div>

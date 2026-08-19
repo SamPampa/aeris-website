@@ -6,7 +6,7 @@ window.addEventListener('scroll', () => {
   const scrollPosition = window.scrollY;
 
   // Soglia calibrata: richiede di scorrere per 150px
-  if (scrollPosition > 150) {
+  if (scrollPosition > 20) {
     acronym.classList.add('scrolled');
     fullText.classList.add('scrolled');
   } else {
