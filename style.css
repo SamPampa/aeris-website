@@ -767,8 +767,6 @@ body {
 
 /* --- RESPONSIVE OPTIMIZATION PER MOBILE & TABLET --- */
 
-/* --- RESPONSIVE OPTIMIZATION PER MOBILE & TABLET --- */
-
 @media (max-width: 1100px) {
   .disciplines-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -797,7 +795,56 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* Riduzione margini verticali tra le sezioni */
+  
+  /* 1. Barra Notizie eliminata */
+  .news-ticker-container {
+    display: none !important;
+  }
+
+  /* 2. NAVBAR: REGOLAZIONE ALTEZZA E CONTENUTO */
+  .apple-navbar {
+    padding: 25px 0 !important; /* <--- MODIFICA QUI L'ALTEZZA DELLA BARRA NERA */
+  }
+
+  .apple-navbar .nav-content {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0 20px !important; /* <--- MODIFICA QUI LO SPAZIO DAI BORDI DELLO SCHERMO */
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .apple-navbar .logo {
+    white-space: nowrap !important;
+    font-size: 1.4rem !important; /* <--- MODIFICA QUI LA GRANDEZZA DEL LOGO */
+    margin: 0 !important;
+  }
+
+  .apple-navbar .nav-links li:not(:last-child) {
+    display: none !important;
+  }
+
+  .apple-navbar .nav-links {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .apple-navbar .nav-links li:last-child {
+    display: block !important;
+  }
+
+  .apple-navbar .btn-apple {
+    padding: 9px 18px !important; /* <--- MODIFICA QUI LO SPAZIO INTERNO DEL PULSANTE */
+    font-size: 0.9rem !important;  /* <--- MODIFICA QUI LA GRANDEZZA DEL TESTO DEL PULSANTE */
+    white-space: nowrap !important;
+  }
+
+
+  /* 3. RIDUZIONE MARGINI SEZIONI */
   .mission-section, 
   .roadmap-section, 
   .disciplines-section, 
@@ -811,64 +858,24 @@ body {
   .mission-lead { font-size: 1.15rem; }
   .mission-subtext { font-size: 0.95rem; }
 
-  /* 1. Divisioni operative: 2 colonne compatte */
+  /* 4. DIVISIONI: 2 COLONNE COMPATTE */
   .disciplines-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 12px;
   }
 
-  .discipline-card .card-image {
-    height: 140px; /* Riduce l'altezza dell'immagine */
-  }
+  .discipline-card .card-image { height: 140px; }
+  .discipline-card .card-content { padding: 16px 12px; }
+  .discipline-card .card-content h3 { font-size: 1.05rem; margin-bottom: 6px; }
+  .discipline-card .card-content p { font-size: 0.8rem; line-height: 1.35; }
 
-  .discipline-card .card-content {
-    padding: 16px 12px;
-  }
-
-  .discipline-card .card-content h3 {
-    font-size: 1.05rem;
-    margin-bottom: 6px;
-  }
-
-  .discipline-card .card-content p {
-    font-size: 0.8rem;
-    line-height: 1.35;
-  }
-
-  /* 2. Notizie in formato orizzontale compatto (Foto a sinistra, testo a destra) */
-  .news-grid {
-    grid-template-columns: 1fr !important;
-    gap: 12px;
-  }
-
-  .news-card {
-    flex-direction: row !important;
-    align-items: center;
-    padding: 10px;
-  }
-
-  .news-img {
-    width: 100px !important;
-    height: 80px !important;
-    min-width: 100px;
-    border-radius: 8px;
-    border-bottom: none !important;
-  }
-
-  .news-text {
-    padding: 0 0 0 14px !important;
-    justify-content: center;
-  }
-
-  .news-title {
-    font-size: 0.88rem !important;
-    margin-bottom: 6px !important;
-    -webkit-line-clamp: 2 !important;
-  }
-
-  .news-date {
-    font-size: 0.7rem !important;
-  }
+  /* 5. NOTIZIE: SCHEDE ORIZZONTALI COMPATTE */
+  .news-grid { grid-template-columns: 1fr !important; gap: 12px; }
+  .news-card { flex-direction: row !important; align-items: center; padding: 10px; }
+  .news-img { width: 100px !important; height: 80px !important; min-width: 100px; border-radius: 8px; border-bottom: none !important; }
+  .news-text { padding: 0 0 0 14px !important; justify-content: center; }
+  .news-title { font-size: 0.88rem !important; margin-bottom: 6px !important; -webkit-line-clamp: 2 !important; }
+  .news-date { font-size: 0.7rem !important; }
 }
 
 @media (max-width: 650px) {
