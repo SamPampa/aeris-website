@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AERIS Technologies | PoliMi</title>
-  <!-- Ricordati di cambiare il v=4 in v=5 se il browser fa i capricci con la cache -->
-  <link rel="stylesheet" href="style.css?v=5">
+  <!-- Ricordati di cambiare il v=5 in v=6 se il browser fa i capricci con la cache -->
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 
@@ -22,6 +22,24 @@
       </ul>
     </div>
   </nav>
+
+  <!-- Live Aerospace Feed Ticker -->
+  <div class="news-ticker-container">
+    <div class="ticker-side ticker-left">
+      <!-- Spazio vuoto a sinistra -->
+    </div>
+    
+    <div class="ticker-track-wrapper">
+      <div class="ticker-track" id="ticker-track">
+        <!-- I titoli scorrevoli verranno iniettati qui dal JS -->
+        <span class="ticker-item">Connessione al database aerospaziale in corso...</span>
+      </div>
+    </div>
+    
+    <div class="ticker-side ticker-right">
+      <a href="#news-section" class="btn-ticker">NOTIZIE</a>
+    </div>
+  </div>
 
   <!-- Hero Section Dinamica -->
   <header class="hero">
@@ -46,22 +64,28 @@
 
   <!-- Sezione Mission -->
   <section id="mission" class="mission-section scroll-reveal">
-    <div class="mission-content">
-      <h2>L'Obiettivo Definitivo.</h2>
-      
-      <!-- Il Manifesto -->
-      <blockquote class="mission-statement">
-        "Mettere la progettazione, lo sviluppo e il collaudo di velivoli ad alta velocità direttamente nelle mani degli studenti. Il nostro obiettivo a lungo termine è uno solo: costruire e far volare il primo UAV supersonico mai realizzato interamente da un team universitario."
-      </blockquote>
+    <div class="mission-header">
+      <span class="section-tag">MISSION // STATEMENT</span>
+      <h2>Il Nostro Obiettivo</h2>
+    </div>
 
-      <p>Non ci limitiamo alla teoria. AERIS promuove la crescita scientifica attraverso la progettazione e il collaudo di sistemi aerospaziali complessi, favorendo lo scambio interdisciplinare tra studenti, dipartimenti di ricerca e industria.</p>
+    <div class="mission-card">
+      <p class="mission-lead">
+        "Offrire agli studenti l'opportunità unica di padroneggiare l'intero ciclo di vita di un sistema aerospaziale avanzato, dalla teoria al collaudo sul campo. Lavoriamo verso un traguardo ambizioso: progettare, costruire e portare in volo un velivolo autonomo capace di superare la barriera del suono."
+      </p>
+
+      <div class="mission-divider"></div>
+
+      <p class="mission-subtext">
+        Non ci limitiamo alla teoria: impariamo misurandoci direttamente con sfide ingegneristiche reali. In AERIS ogni membro sviluppa una comprensione concreta dell'intero ciclo di progettazione, calcolo e collaudo, costruendo competenze pratiche e metodologiche indispensabili per il panorama aerospaziale di domani.
+      </p>
     </div>
   </section>
 
   <!-- Sezione Roadmap / Flight Plan -->
   <section id="roadmap" class="roadmap-section scroll-reveal">
     <div class="section-heading">
-      <span class="section-tag" style="display: block; font-family: monospace; color: var(--pantone-blue); letter-spacing: 2px; margin-bottom: 10px;">FLIGHT PLAN &amp; MILESTONES</span>
+      <span class="section-tag" style="display: block; margin-bottom: 10px;">FLIGHT PLAN &amp; MILESTONES</span>
       <h2>Roadmap di Sviluppo</h2>
     </div>
 
@@ -138,7 +162,7 @@
   <!-- Sezione Divisioni Operative (6 Reparti) -->
   <section id="disciplines" class="disciplines-section">
     <div class="section-heading scroll-reveal">
-      <span class="section-tag" style="display: block; font-family: monospace; color: var(--pantone-blue); letter-spacing: 2px; margin-bottom: 10px;">AREE DI RICERCA & GESTIONE</span>
+      <span class="section-tag" style="display: block; margin-bottom: 10px;">AREE DI RICERCA &amp; GESTIONE</span>
       <h2>Divisioni Operative</h2>
     </div>
     
@@ -205,18 +229,35 @@
     </div>
   </section>
 
+  <!-- Sezione Notizie Estesa -->
+  <section id="news-section" class="news-section scroll-reveal">
+    <div class="section-heading">
+      <span class="section-tag" style="display: block; margin-bottom: 10px;">GLOBAL AEROSPACE FEED</span>
+      <h2>Notizie &amp; Aggiornamenti</h2>
+    </div>
+
+    <!-- La griglia dove finiranno le card -->
+    <div class="news-grid" id="news-grid">
+      <!-- Le card verranno generate automaticamente dal JavaScript -->
+    </div>
+
+    <div class="news-actions">
+      <button id="toggle-news-btn" class="btn-secondary btn-expand">Espandi &darr;</button>
+    </div>
+  </section>
+
   <!-- Sezione Recruitment & Operational Data (Wide Panel) -->
   <section id="recruitment" class="join-section scroll-reveal">
     <div class="join-panel">
       
       <!-- Lato Sinistro: Call to Action -->
       <div class="join-content">
-        <span class="section-tag" style="display: block; font-family: monospace; color: var(--pantone-blue); letter-spacing: 2px; margin-bottom: 16px;">CAREERS &middot; AERIS TECHNOLOGIES</span>
-        <h2>Progetta. Costruisci. Vola.</h2>
-        <p>Non cerchiamo semplice motivazione, selezioniamo competenza. AERIS sta espandendo le divisioni di Aerodinamica, Strutture, Avionica e Algoritmi di Volo. Se sei pronto a progettare sistemi complessi e a spingere l'hardware oltre il muro del suono, il tuo posto è qui.</p>
+        <span class="section-tag" style="display: block; margin-bottom: 16px;">CAREERS &middot; AERIS TECHNOLOGIES</span>
+        <h2>Partecipa alla Fondazione.</h2>
+        <p>Stiamo assemblando il primo nucleo operativo del team. Cerchiamo studenti motivati da qualsiasi percorso di studi — con un focus particolare su Ingegneria Aerospaziale, Meccanica, Elettronica, Informatica e Gestionale — per sviluppare da zero le nostre piattaforme di volo. Qualunque sia il tuo indirizzo, se hai competenze da mettere in campo e vuoi misurarti con sfide ingegneristiche reali, c'è un posto attivo per te.</p>
         
         <div class="join-actions">
-          <a href="mailto:aeris.polimi@gmail.com?subject=Candidatura%20Team%20AERIS" class="btn-primary">
+          <a href="mailto:aeristech.team@gmail.com?subject=Candidatura%20Team%20AERIS" class="btn-primary">
             Invia Candidatura &rarr;
           </a>
         </div>
@@ -224,17 +265,17 @@
 
       <!-- Lato Destro: Dati Operativi Integrati -->
       <div class="join-telemetry">
-        <div class="data-item">
-          <span class="data-label">OPERATIONAL HQ</span>
-          <span class="data-value">PoliMi Campus</span>
+        <div class="spec-item">
+          <span class="spec-label">HEADQUARTERS</span>
+          <span class="spec-value">PoliMi Campus</span>
         </div>
-        <div class="data-item">
-          <span class="data-label">CLEARANCE REQ.</span>
-          <span class="data-value">BSc / MSc / PhD</span>
+        <div class="spec-item">
+          <span class="spec-label">TARGET CANDIDATI</span>
+          <span class="spec-value">BSc / MSc / PhD</span>
         </div>
-        <div class="data-item">
-          <span class="data-label">TEAM STATUS</span>
-          <span class="data-value">Active Ops</span>
+        <div class="spec-item">
+          <span class="spec-label">STATO ATTUALE</span>
+          <span class="spec-value">Founding Phase</span>
         </div>
       </div>
 
