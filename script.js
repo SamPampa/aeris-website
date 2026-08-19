@@ -1,12 +1,12 @@
-// 1. Motore Hero Section (Transizione Acronimo -> Testo Esteso)
+// 1. Motore Hero Section (Acronimo -> Testo Esteso)
 const acronym = document.getElementById('acronym');
 const fullText = document.getElementById('full-text');
 
 window.addEventListener('scroll', () => {
   const scrollPosition = window.scrollY;
 
-  // Soglia calibrata per rendere graduale l'espansione
-  if (scrollPosition > 140) {
+  // Soglia calibrata: richiede di scorrere per 150px
+  if (scrollPosition > 150) {
     acronym.classList.add('scrolled');
     fullText.classList.add('scrolled');
   } else {
@@ -15,14 +15,14 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// 2. Intersection Observer per comparsa lenta e solenne dei blocchi
+// 2. Intersection Observer per comparsa progressiva dei blocchi
 document.addEventListener('DOMContentLoaded', () => {
   const revealElements = document.querySelectorAll('.scroll-reveal');
 
   const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.25 // Entra in visuale al 25% dell'altezza del blocco
+    threshold: 0.35
   };
 
   const observer = new IntersectionObserver((entries, observer) => {

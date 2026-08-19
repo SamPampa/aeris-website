@@ -1,13 +1,10 @@
 :root {
   --bg-dark: #000000;
-  --surface: #0e0e10;
-  --surface-card: #151518;
-  --surface-border: rgba(255, 255, 255, 0.08);
-  --surface-border-hover: rgba(10, 132, 255, 0.4);
+  --surface: #111113;
+  --surface-border: rgba(255, 255, 255, 0.1);
   --pantone-blue: #0a84ff;
   --text-main: #f5f5f7;
   --text-muted: #86868b;
-  --accent-glow: rgba(10, 132, 255, 0.15);
 }
 
 * {
@@ -61,7 +58,7 @@ body {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 28px;
+  gap: 32px;
   align-items: center;
 }
 
@@ -92,34 +89,6 @@ body {
   box-shadow: 0 0 15px rgba(10, 132, 255, 0.4);
 }
 
-/* Common Section Tags */
-.section-tag {
-  display: inline-block;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  color: var(--pantone-blue);
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.section-heading {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 60px;
-}
-
-.section-heading h2 {
-  font-size: 2.8rem;
-  letter-spacing: -1px;
-}
-
-.section-sub {
-  color: var(--text-muted);
-  font-size: 1.15rem;
-  margin-top: 12px;
-}
-
 /* Hero Section */
 .hero {
   height: 100vh;
@@ -128,12 +97,12 @@ body {
   align-items: center;
   text-align: center;
   padding: 0 20px;
-  background: radial-gradient(circle at center, #16161a 0%, #000 100%);
+  background: radial-gradient(circle at center, #1a1a1c 0%, #000 100%);
 }
 
 .hero-text {
   max-width: 900px;
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 .tagline {
@@ -145,12 +114,13 @@ body {
   margin-bottom: 24px;
 }
 
+/* Struttura Hero Dinamica */
 .title-container {
   display: grid;
   place-items: center;
   margin-bottom: 24px;
   position: relative;
-  min-height: 160px;
+  min-height: 150px;
 }
 
 .title-container h1 {
@@ -163,7 +133,7 @@ body {
 
 #acronym {
   font-size: 6rem;
-  letter-spacing: 6px;
+  letter-spacing: 5px;
   opacity: 1;
   transform: scale(1);
 }
@@ -175,7 +145,7 @@ body {
 }
 
 #full-text {
-  font-size: 4.2rem;
+  font-size: 4.5rem;
   opacity: 0;
   transform: scale(0.9) translateY(20px);
   pointer-events: none;
@@ -188,159 +158,65 @@ body {
 }
 
 .hero p.subtitle {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: var(--text-muted);
-  max-width: 750px;
-  margin: 0 auto 36px;
-}
-
-.hero-cta {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-}
-
-.btn-primary {
-  background: var(--pantone-blue);
-  color: #fff;
-  padding: 12px 28px;
-  border-radius: 980px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(10, 132, 255, 0.3);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(10, 132, 255, 0.5);
-}
-
-.btn-secondary {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--text-main);
-  padding: 12px 24px;
-  border-radius: 980px;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: background 0.3s;
-}
-
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 /* Mission Section */
 .mission-section {
-  max-width: 850px;
-  margin: 140px auto;
+  max-width: 800px;
+  margin: 120px auto;
   text-align: center;
-  padding: 0 24px;
+  padding: 0 20px;
 }
 
 .mission-section h2 {
   font-size: 3rem;
   letter-spacing: -1px;
+  margin-bottom: 24px;
 }
 
 .mission-statement {
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   font-weight: 600;
   color: #fff;
   font-style: italic;
-  margin: 36px 0;
-  padding-left: 24px;
+  margin: 30px 0;
+  padding-left: 20px;
   border-left: 4px solid var(--pantone-blue);
   line-height: 1.4;
   text-align: left;
 }
 
 .mission-section p {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: var(--text-muted);
-  line-height: 1.7;
 }
 
-/* Roadmap Section */
-.roadmap-section {
-  max-width: 1200px;
-  margin: 140px auto;
-  padding: 0 24px;
-}
-
-.roadmap-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-}
-
-.roadmap-card {
-  background: var(--surface);
-  border: 1px solid var(--surface-border);
-  border-radius: 16px;
-  padding: 36px 30px;
-  position: relative;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.roadmap-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--surface-border-hover);
-}
-
-.phase-number {
-  font-family: "Courier New", Courier, monospace;
-  font-size: 0.85rem;
-  font-weight: bold;
-  color: var(--pantone-blue);
-  margin-bottom: 12px;
-}
-
-.roadmap-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 12px;
-}
-
-.phase-desc {
-  color: var(--text-muted);
-  font-size: 1rem;
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-
-.phase-list {
-  list-style: none;
-  padding-top: 15px;
-  border-top: 1px solid var(--surface-border);
-}
-
-.phase-list li {
-  font-size: 0.9rem;
-  color: #c7c7cc;
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.phase-list li::before {
-  content: "▹";
-  color: var(--pantone-blue);
-}
-
-/* Disciplines Section */
+/* Discipline Section */
 .disciplines-section {
   max-width: 1200px;
   margin: 150px auto;
   padding: 0 24px;
 }
 
+.section-heading {
+  margin-bottom: 60px;
+  border-bottom: 1px solid var(--surface-border);
+  padding-bottom: 20px;
+}
+
+.section-heading h2 {
+  font-size: 2.5rem;
+  letter-spacing: -1px;
+}
+
 .disciplines-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 36px;
+  gap: 40px;
 }
 
 .discipline-card {
@@ -348,17 +224,17 @@ body {
   border: 1px solid var(--surface-border);
   border-radius: 20px;
   overflow: hidden;
-  transition: transform 0.4s ease, border-color 0.4s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .discipline-card:hover {
   transform: translateY(-5px);
-  border-color: var(--surface-border-hover);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--pantone-blue);
 }
 
 .card-image {
   width: 100%;
-  height: 280px;
+  height: 300px;
   overflow: hidden;
   border-bottom: 1px solid var(--surface-border);
 }
@@ -376,162 +252,91 @@ body {
 }
 
 .card-content {
-  padding: 32px 28px;
-}
-
-.dept-tag {
-  font-family: "Courier New", Courier, monospace;
-  font-size: 0.7rem;
-  color: var(--pantone-blue);
-  letter-spacing: 1.5px;
-  display: block;
-  margin-bottom: 8px;
+  padding: 40px 30px;
 }
 
 .card-content h3 {
-  font-size: 1.6rem;
-  margin-bottom: 10px;
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  color: var(--text-main);
 }
 
 .card-content p {
   color: var(--text-muted);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.05rem;
 }
 
-/* Structure / Org Section */
-.structure-section {
-  max-width: 1100px;
-  margin: 150px auto;
+/* Data / Statute Section */
+.build-log-section {
+  max-width: 1000px;
+  margin: 150px auto 100px;
   padding: 0 24px;
 }
 
-.org-layout {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.org-box {
-  background: var(--surface);
-  border: 1px solid var(--surface-border);
-  border-radius: 14px;
-  padding: 28px;
-}
-
-.board-box {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 20px;
-  border-color: rgba(10, 132, 255, 0.3);
-}
-
-.org-branches {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-
-.org-role {
+.log-tag {
   font-family: "Courier New", Courier, monospace;
   font-size: 0.75rem;
+  letter-spacing: 2px;
   color: var(--pantone-blue);
-  letter-spacing: 1px;
-  display: block;
-  margin-bottom: 6px;
+  text-transform: uppercase;
 }
 
-.org-box h4 {
-  font-size: 1.3rem;
-  margin-bottom: 8px;
+.log-title {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin: 10px 0 40px;
 }
 
-.org-box p {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-.matrix-explanation {
+.data-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  margin-top: 10px;
-}
-
-.matrix-card {
-  background: var(--surface-card);
+  grid-template-columns: repeat(4, 1fr);
   border: 1px solid var(--surface-border);
-  border-radius: 14px;
-  padding: 28px;
+  border-radius: 12px;
+  background: var(--surface);
 }
 
-.matrix-icon {
-  font-size: 1.8rem;
-  color: var(--pantone-blue);
+.data-cell {
+  padding: 30px 20px;
+  border-right: 1px solid var(--surface-border);
+}
+
+.data-cell:last-child {
+  border-right: none;
+}
+
+.data-label {
+  display: block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
   margin-bottom: 12px;
 }
 
-.matrix-card h4 {
-  font-size: 1.25rem;
-  margin-bottom: 8px;
+.data-value {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--text-main);
 }
 
-.matrix-card p {
-  font-size: 0.95rem;
+.unit {
+  font-size: 0.9rem;
+  font-weight: normal;
   color: var(--text-muted);
-  line-height: 1.5;
-}
-
-/* Recruitment Section */
-.recruitment-section {
-  max-width: 900px;
-  margin: 160px auto 120px;
-  padding: 0 24px;
-  text-align: center;
-}
-
-.recruitment-box {
-  background: radial-gradient(circle at center, #17171d 0%, #0c0c0e 100%);
-  border: 1px solid var(--surface-border-hover);
-  border-radius: 24px;
-  padding: 60px 40px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-}
-
-.recruitment-box h2 {
-  font-size: 2.8rem;
-  margin-bottom: 16px;
-}
-
-.recruitment-box p {
-  color: var(--text-muted);
-  font-size: 1.2rem;
-  max-width: 650px;
-  margin: 0 auto 36px;
-}
-
-.btn-large {
-  padding: 16px 36px;
-  font-size: 1.1rem;
-}
-
-.recruitment-note {
-  font-size: 0.9rem !important;
-  color: var(--text-muted) !important;
-  margin-top: 24px !important;
 }
 
 /* Footer */
 .site-footer {
   text-align: center;
-  padding: 50px 20px;
+  padding: 60px 20px;
   border-top: 1px solid var(--surface-border);
   color: var(--text-muted);
   font-size: 0.85rem;
 }
 
-/* Reveal Animazioni Lente (1.5s) */
+/* Animazioni Base e Trigger Lento (1.5s) */
 .scroll-reveal {
   opacity: 0;
   transform: translateY(80px);
@@ -543,14 +348,12 @@ body {
   transform: translateY(0);
 }
 
-/* Responsive per smartphone */
+/* Responsive */
 @media (max-width: 900px) {
-  #acronym { font-size: 3.8rem; }
-  #full-text { font-size: 2.5rem; }
-  .roadmap-grid, .disciplines-grid, .org-branches, .matrix-explanation {
-    grid-template-columns: 1fr;
-  }
-  .nav-links { display: none; }
-  .recruitment-box { padding: 40px 20px; }
-  .recruitment-box h2 { font-size: 2rem; }
+  #acronym { font-size: 4rem; }
+  #full-text { font-size: 3rem; }
+  .disciplines-grid { grid-template-columns: 1fr; }
+  .data-grid { grid-template-columns: repeat(2, 1fr); }
+  .data-cell:nth-child(2) { border-right: none; }
+  .data-cell:nth-child(1), .data-cell:nth-child(2) { border-bottom: 1px solid var(--surface-border); }
 }
