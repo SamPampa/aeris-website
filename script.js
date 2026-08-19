@@ -1,12 +1,12 @@
-// 1. Gestione dell'animazione Acronimo -> Testo (Hero Section)
+// 1. Motore Hero Section (Transizione Acronimo -> Testo Esteso)
 const acronym = document.getElementById('acronym');
 const fullText = document.getElementById('full-text');
 
 window.addEventListener('scroll', () => {
   const scrollPosition = window.scrollY;
 
-  // Soglia ritardata a 150 pixel
-  if (scrollPosition > 30) {
+  // Soglia calibrata per rendere graduale l'espansione
+  if (scrollPosition > 140) {
     acronym.classList.add('scrolled');
     fullText.classList.add('scrolled');
   } else {
@@ -15,22 +15,21 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// 2. Gestione dei blocchi che compaiono dal basso (Scroll Reveal)
+// 2. Intersection Observer per comparsa lenta e solenne dei blocchi
 document.addEventListener('DOMContentLoaded', () => {
   const revealElements = document.querySelectorAll('.scroll-reveal');
 
   const observerOptions = {
     root: null,
     rootMargin: '0px',
-    // Il blocco appare solo quando è entrato per il 35% nello schermo
-    threshold: 0.35 
+    threshold: 0.25 // Entra in visuale al 25% dell'altezza del blocco
   };
 
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target); 
+        observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
