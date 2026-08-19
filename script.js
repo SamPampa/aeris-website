@@ -5,7 +5,7 @@ const fullText = document.getElementById('full-text');
 window.addEventListener('scroll', () => {
   const scrollPosition = window.scrollY;
 
-  // Soglia calibrata: richiede di scorrere per 150px
+  // Soglia calibrata: richiede di scorrere per 20px
   if (scrollPosition > 20) {
     acronym.classList.add('scrolled');
     fullText.classList.add('scrolled');
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.35
+    threshold: 0.40
   };
 
   const observer = new IntersectionObserver((entries, observer) => {
