@@ -5,6 +5,8 @@
   --pantone-blue: #0a84ff;
   --text-main: #f5f5f7;
   --text-muted: #86868b;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --nav-offset: 110px;
 }
 
 * {
@@ -14,11 +16,50 @@
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-offset);
+}
+
 body {
   background-color: var(--bg-dark);
   color: var(--text-main);
   overflow-x: hidden;
   line-height: 1.5;
+}
+
+:focus-visible {
+  outline: 2px solid var(--pantone-blue);
+  outline-offset: 3px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 10000;
+  background: var(--text-main);
+  color: var(--bg-dark);
+  padding: 10px 16px;
+  border-radius: 980px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 12px;
 }
 
 /* Navbar Glassmorphism */
@@ -67,7 +108,7 @@ body {
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 500;
-  transition: color 0.3s;
+  transition: color 0.3s var(--ease-out);
 }
 
 .nav-links a:hover {
@@ -80,36 +121,45 @@ body {
   padding: 8px 18px;
   border-radius: 980px;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s var(--ease-out);
 }
 
-.btn-apple:hover {
-  background: var(--pantone-blue);
-  color: #fff !important;
-  box-shadow: 0 0 15px rgba(10, 132, 255, 0.4);
+@media (hover: hover) {
+  .btn-apple:hover {
+    background: var(--pantone-blue);
+    color: #fff !important;
+    box-shadow: 0 0 15px rgba(10, 132, 255, 0.4);
+    transform: translateY(-1px);
+  }
 }
 
-/* --- Etichette Blu Globali per tutte le sezioni --- */
 .section-tag {
-  display: inline-block !important;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif !important;
-  font-weight: 700 !important;
-  color: var(--pantone-blue) !important;
-  letter-spacing: 2px !important;
-  font-size: 0.75rem !important;
-  text-transform: uppercase !important;
-  margin-bottom: 12px !important;
+  display: block;
+  font-weight: 700;
+  color: var(--pantone-blue);
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
-/* Pulsanti Generici (Hero & Recruitment) */
-.hero-cta, .join-actions {
+.hero-cta,
+.join-actions {
   display: flex;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .hero-cta {
   justify-content: center;
   margin-top: 36px;
+}
+
+.btn-primary,
+.btn-secondary {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .btn-primary {
@@ -120,14 +170,20 @@ body {
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
-  transition: all 0.3s ease;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
   box-shadow: 0 4px 15px rgba(10, 132, 255, 0.3);
   display: inline-block;
 }
 
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(10, 132, 255, 0.6);
+@media (hover: hover) {
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(10, 132, 255, 0.6);
+  }
+}
+
+.btn-primary:active {
+  transform: translateY(0);
 }
 
 .btn-secondary {
@@ -138,22 +194,25 @@ body {
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
-  transition: background 0.3s;
+  transition: background 0.3s ease, transform 0.3s var(--ease-out);
   display: inline-block;
 }
 
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
+@media (hover: hover) {
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+  }
 }
 
-/* Hero Section */
+/* Hero */
 .hero {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0 20px;
+  padding: 40px 20px 0;
   background: radial-gradient(circle at center, #1a1a1c 0%, #000 100%);
 }
 
@@ -164,7 +223,6 @@ body {
 
 .tagline {
   color: var(--pantone-blue);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
   font-size: 0.8rem;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -181,11 +239,18 @@ body {
 }
 
 .title-container h1 {
-  grid-area: 1 / 1;
+  display: grid;
+  place-items: center;
+  width: 100%;
   font-weight: 800;
   letter-spacing: -1.5px;
   line-height: 1.1;
-  transition: opacity 1.5s cubic-bezier(0.25, 1, 0.5, 1), transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#acronym,
+#full-text {
+  grid-area: 1 / 1;
+  transition: opacity 1.2s var(--ease-out), transform 1.2s var(--ease-out);
 }
 
 #acronym {
@@ -197,14 +262,14 @@ body {
 
 #acronym.scrolled {
   opacity: 0;
-  transform: scale(1.2) translateY(-20px);
+  transform: scale(1.12) translateY(-16px);
   pointer-events: none;
 }
 
 #full-text {
   font-size: 4.5rem;
   opacity: 0;
-  transform: scale(0.9) translateY(20px);
+  transform: scale(0.94) translateY(16px);
   pointer-events: none;
 }
 
@@ -221,7 +286,7 @@ body {
   margin: 0 auto;
 }
 
-/* Mission Section */
+/* Mission */
 .mission-section {
   max-width: 900px;
   margin: 150px auto;
@@ -231,18 +296,6 @@ body {
 
 .mission-header {
   margin-bottom: 40px;
-}
-
-/* Modifica 1: Font unificato per l'etichetta blu della missione */
-.mission-header .section-tag {
-  display: inline-block;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
-  font-weight: 700;
-  color: var(--pantone-blue);
-  letter-spacing: 2px;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  margin-bottom: 12px;
 }
 
 .mission-header h2 {
@@ -286,7 +339,7 @@ body {
   max-width: 720px;
 }
 
-/* Roadmap / Timeline Layout */
+/* Roadmap */
 .roadmap-section {
   max-width: 1200px;
   margin: 150px auto;
@@ -337,17 +390,17 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  transition: border-color 0.4s ease, transform 0.4s ease;
+  transition: border-color 0.4s ease, transform 0.4s var(--ease-out), box-shadow 0.4s ease;
 }
 
-.timeline-content:hover {
-  border-color: rgba(10, 132, 255, 0.4);
-  transform: translateY(-5px);
+@media (hover: hover) {
+  .timeline-content:hover {
+    border-color: rgba(10, 132, 255, 0.4);
+    transform: translateY(-5px);
+  }
 }
 
-/* Modifica 2: Font unificato per le etichette blu della Roadmap */
 .phase-meta {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--pantone-blue);
@@ -399,9 +452,11 @@ body {
   box-shadow: inset 0 0 20px rgba(50, 215, 75, 0.05), 0 0 15px rgba(50, 215, 75, 0.1);
 }
 
-.active-phase:hover {
-  border-color: #32d74b;
-  box-shadow: inset 0 0 20px rgba(50, 215, 75, 0.1), 0 0 25px rgba(50, 215, 75, 0.2);
+@media (hover: hover) {
+  .active-phase:hover {
+    border-color: #32d74b;
+    box-shadow: inset 0 0 20px rgba(50, 215, 75, 0.1), 0 0 25px rgba(50, 215, 75, 0.2);
+  }
 }
 
 .active-dot {
@@ -413,7 +468,7 @@ body {
   color: #32d74b;
 }
 
-/* Discipline Section */
+/* Divisioni */
 .disciplines-section {
   max-width: 1200px;
   margin: 150px auto;
@@ -421,7 +476,7 @@ body {
 }
 
 .section-heading {
-  margin-bottom: 60px;
+  margin-bottom: 28px;
   border-bottom: 1px solid var(--surface-border);
   padding-bottom: 20px;
 }
@@ -429,6 +484,41 @@ body {
 .section-heading h2 {
   font-size: 2.5rem;
   letter-spacing: -1px;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+
+.filter-chip {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  border: 1px solid var(--surface-border);
+  border-radius: 980px;
+  padding: 8px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+@media (hover: hover) {
+  .filter-chip:hover {
+    color: var(--text-main);
+    border-color: rgba(10, 132, 255, 0.45);
+  }
+}
+
+.filter-chip.is-active {
+  color: #fff;
+  background: rgba(10, 132, 255, 0.16);
+  border-color: rgba(10, 132, 255, 0.55);
+  box-shadow: 0 0 12px rgba(10, 132, 255, 0.18);
 }
 
 .disciplines-grid {
@@ -442,12 +532,38 @@ body {
   border: 1px solid var(--surface-border);
   border-radius: 20px;
   overflow: hidden;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s ease, opacity 0.35s ease;
 }
 
-.discipline-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--pantone-blue);
+.discipline-card.is-filtered-out {
+  display: none;
+}
+
+@media (hover: hover) {
+  .discipline-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--pantone-blue);
+  }
+
+  .discipline-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, transparent 35%, rgba(10, 132, 255, 0.1) 50%, transparent 65%);
+    transform: translateX(-120%);
+    transition: transform 0.7s var(--ease-out);
+    pointer-events: none;
+  }
+
+  .discipline-card:hover::after {
+    transform: translateX(120%);
+  }
+
+  .discipline-card:hover .card-image img {
+    filter: grayscale(0%) contrast(110%);
+    transform: scale(1.04);
+  }
 }
 
 .card-image {
@@ -462,15 +578,11 @@ body {
   height: 100%;
   object-fit: cover;
   filter: grayscale(100%) contrast(120%);
-  transition: filter 0.5s ease;
-}
-
-.discipline-card:hover .card-image img {
-  filter: grayscale(0%) contrast(110%);
+  transition: filter 0.5s ease, transform 0.6s var(--ease-out);
 }
 
 .img-uav {
-  object-position: 9% center; 
+  object-position: 9% center;
 }
 
 .card-content {
@@ -488,7 +600,7 @@ body {
   font-size: 1.05rem;
 }
 
-/* --- Recruitment Wide Panel --- */
+/* Recruitment */
 .join-section {
   max-width: 1100px;
   margin: 160px auto 120px;
@@ -534,14 +646,12 @@ body {
   min-width: 280px;
 }
 
-.data-item, .spec-item {
+.spec-item {
   display: flex;
   flex-direction: column;
 }
 
-/* Modifica 3: Font unificato per le etichette blu del recruitment */
-.data-label, .spec-label {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+.spec-label {
   color: var(--pantone-blue);
   font-size: 0.75rem;
   font-weight: 700;
@@ -550,7 +660,7 @@ body {
   margin-bottom: 6px;
 }
 
-.data-value, .spec-value {
+.spec-value {
   font-size: 1.25rem;
   font-weight: 600;
   color: #fff;
@@ -565,19 +675,43 @@ body {
   font-size: 0.85rem;
 }
 
-/* Animazioni Base */
+.footer-link {
+  display: inline-block;
+  margin-top: 14px;
+  background: none;
+  border: none;
+  color: var(--pantone-blue);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+@media (hover: hover) {
+  .footer-link:hover {
+    color: #fff;
+    text-shadow: 0 0 12px rgba(10, 132, 255, 0.8);
+  }
+}
+
+/* Scroll reveal */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(80px);
-  transition: opacity 1.5s cubic-bezier(0.25, 1, 0.5, 1), transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+  transform: translateY(48px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
 }
 
 .scroll-reveal.visible {
   opacity: 1;
   transform: translateY(0);
+  will-change: auto;
 }
 
-/* --- Ticker Superiore a 3 Blocchi --- */
+/* Ticker */
 .news-ticker-container {
   position: fixed;
   top: 61px;
@@ -605,24 +739,30 @@ body {
   background: rgba(10, 10, 12, 1);
 }
 
-.ticker-left { border-right: 1px solid var(--surface-border); }
-.ticker-right { border-left: 1px solid var(--surface-border); }
+.ticker-left {
+  border-right: 1px solid var(--surface-border);
+}
+
+.ticker-right {
+  border-left: 1px solid var(--surface-border);
+}
 
 .btn-ticker {
   color: var(--pantone-blue);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, sans-serif;
   font-weight: 600;
   font-size: 0.85rem;
   letter-spacing: 0.5px;
   text-decoration: none;
   text-transform: uppercase;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.btn-ticker:hover {
-  color: #fff;
-  text-shadow: 0 0 12px rgba(10, 132, 255, 0.8);
-  transform: scale(1.05);
+@media (hover: hover) {
+  .btn-ticker:hover {
+    color: #fff;
+    text-shadow: 0 0 12px rgba(10, 132, 255, 0.8);
+    transform: scale(1.05);
+  }
 }
 
 .ticker-track-wrapper {
@@ -642,16 +782,15 @@ body {
   animation: scroll-ticker 75s linear infinite;
 }
 
-.ticker-track.ticker-active:hover {
-  animation-play-state: paused;
-}
-
-.ticker-track:hover {
-  animation-play-state: paused;
+@media (hover: hover) {
+  .ticker-track.ticker-active:hover {
+    animation-play-state: paused;
+  }
 }
 
 .ticker-item {
   display: inline-block;
+  position: relative;
   font-size: 0.85rem;
   color: var(--text-muted);
   padding: 0 30px;
@@ -659,7 +798,6 @@ body {
 
 .ticker-item::after {
   content: "///";
-  position: absolute;
   margin-left: 20px;
   color: rgba(255, 255, 255, 0.2);
 }
@@ -669,25 +807,51 @@ body {
   100% { transform: translateX(-50%); }
 }
 
-.hero { padding-top: 40px; }
-
-/* --- Sezione Notizie in Basso --- */
+/* News */
 .news-section {
   max-width: 1200px;
   margin: 100px auto;
   padding: 0 24px;
 }
 
-/* Aggiunta: per allineare l'etichetta blu della sezione notizie */
-.news-section .section-tag {
-  display: inline-block;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
-  font-weight: 700;
-  color: var(--pantone-blue);
-  letter-spacing: 2px;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  margin-bottom: 12px;
+.news-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.news-search-wrap {
+  flex: 1;
+  min-width: 200px;
+  max-width: 360px;
+}
+
+.news-search {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--surface-border);
+  border-radius: 980px;
+  color: var(--text-main);
+  padding: 10px 16px;
+  font-size: 0.9rem;
+}
+
+.news-search::placeholder {
+  color: var(--text-muted);
+}
+
+.news-filters {
+  margin-bottom: 0;
+}
+
+.news-status {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  min-height: 1.2em;
 }
 
 .news-grid {
@@ -705,15 +869,19 @@ body {
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s, border-color 0.3s;
+  transition: transform 0.3s var(--ease-out), border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.news-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(10, 132, 255, 0.5);
+@media (hover: hover) {
+  .news-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(10, 132, 255, 0.5);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  }
 }
 
-.news-card.hidden-row {
+.news-card.hidden-row,
+.news-card.is-filtered-out {
   display: none;
 }
 
@@ -744,11 +912,9 @@ body {
   overflow: hidden;
 }
 
-/* Modifica 4: Font unificato per le date blu delle notizie */
 .news-date {
   margin-top: auto;
   color: var(--pantone-blue);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -765,26 +931,155 @@ body {
   font-size: 0.95rem;
 }
 
-/* --- RESPONSIVE OPTIMIZATION PER MOBILE & TABLET --- */
+/* Newsletter dialog */
+.newsletter-dialog {
+  width: min(440px, calc(100% - 32px));
+  border: 1px solid var(--surface-border);
+  border-radius: 20px;
+  background: radial-gradient(circle at top left, #17171d 0%, #0c0c0e 100%);
+  color: var(--text-main);
+  padding: 0;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
 
+.newsletter-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.newsletter-form {
+  position: relative;
+  padding: 40px 32px 32px;
+}
+
+.dialog-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-main);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.newsletter-form h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.newsletter-copy,
+.newsletter-note {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.newsletter-note {
+  font-size: 0.75rem;
+  margin: 16px 0 0;
+}
+
+.newsletter-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  color: var(--text-main);
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+}
+
+.newsletter-error {
+  color: #ff453a;
+  font-size: 0.8rem;
+  margin: -6px 0 12px;
+}
+
+.newsletter-submit {
+  width: 100%;
+  text-align: center;
+}
+
+.newsletter-form.is-success .newsletter-input,
+.newsletter-form.is-success .newsletter-submit,
+.newsletter-form.is-success .newsletter-error {
+  display: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .ticker-track.ticker-active {
+    animation: none;
+  }
+}
+
+/* Responsive */
 @media (max-width: 1100px) {
-  .disciplines-grid { grid-template-columns: repeat(2, 1fr); }
+  .disciplines-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 1024px) {
-  .timeline-container { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-  .marker-line { display: none; }
-  .news-grid { grid-template-columns: repeat(2, 1fr); }
+  .timeline-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .marker-line {
+    display: none;
+  }
+
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 900px) {
-  #acronym { font-size: 4rem; }
-  #full-text { font-size: 3rem; }
-  
-  .join-panel { flex-direction: column; }
-  .join-content { padding: 40px 30px; }
-  .join-content h2 { font-size: 2.2rem; }
-  
+  #acronym {
+    font-size: 4rem;
+  }
+
+  #full-text {
+    font-size: 3rem;
+  }
+
+  .join-panel {
+    flex-direction: column;
+  }
+
+  .join-content {
+    padding: 40px 30px;
+  }
+
+  .join-content h2 {
+    font-size: 2.2rem;
+  }
+
   .join-telemetry {
     border-left: none;
     border-top: 1px solid var(--surface-border);
@@ -795,90 +1090,176 @@ body {
 }
 
 @media (max-width: 768px) {
-  
-  /* 1. Barra Notizie eliminata */
+  :root {
+    --nav-offset: 90px;
+  }
+
   .news-ticker-container {
     display: none !important;
   }
 
-  /* 2. NAVBAR: REGOLAZIONE ALTEZZA E CONTENUTO */
   .apple-navbar {
-    padding: 25px 0 !important; /* <--- MODIFICA QUI L'ALTEZZA DELLA BARRA NERA */
+    padding: 25px 0;
   }
 
   .apple-navbar .nav-content {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 0 20px !important; /* <--- MODIFICA QUI LO SPAZIO DAI BORDI DELLO SCHERMO */
-    width: 100% !important;
-    box-sizing: border-box !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .apple-navbar .logo {
-    white-space: nowrap !important;
-    font-size: 1.4rem !important; /* <--- MODIFICA QUI LA GRANDEZZA DEL LOGO */
-    margin: 0 !important;
+    white-space: nowrap;
+    font-size: 1.4rem;
+    margin: 0;
   }
 
   .apple-navbar .nav-links li:not(:last-child) {
-    display: none !important;
+    display: none;
   }
 
   .apple-navbar .nav-links {
-    margin: 0 !important;
-    padding: 0 !important;
-    list-style: none !important;
-    display: flex !important;
-    align-items: center !important;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
   }
 
   .apple-navbar .nav-links li:last-child {
-    display: block !important;
+    display: block;
   }
 
   .apple-navbar .btn-apple {
-    padding: 9px 18px !important; /* <--- MODIFICA QUI LO SPAZIO INTERNO DEL PULSANTE */
-    font-size: 0.9rem !important;  /* <--- MODIFICA QUI LA GRANDEZZA DEL TESTO DEL PULSANTE */
-    white-space: nowrap !important;
+    padding: 9px 18px;
+    font-size: 0.9rem;
+    white-space: nowrap;
   }
 
-
-  /* 3. RIDUZIONE MARGINI SEZIONI */
-  .mission-section, 
-  .roadmap-section, 
-  .disciplines-section, 
-  .news-section, 
+  .mission-section,
+  .roadmap-section,
+  .disciplines-section,
+  .news-section,
   .join-section {
-    margin: 60px auto !important;
+    margin: 60px auto;
   }
 
-  .mission-card { padding: 36px 20px; }
-  .mission-header h2 { font-size: 2.2rem; }
-  .mission-lead { font-size: 1.15rem; }
-  .mission-subtext { font-size: 0.95rem; }
+  .mission-card {
+    padding: 36px 20px;
+  }
 
-  /* 4. DIVISIONI: 2 COLONNE COMPATTE */
+  .mission-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .mission-lead {
+    font-size: 1.15rem;
+  }
+
+  .mission-subtext {
+    font-size: 0.95rem;
+  }
+
+  .filter-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 20px;
+    padding-bottom: 4px;
+  }
+
+  .filter-chip {
+    flex-shrink: 0;
+  }
+
+  .news-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .news-search-wrap {
+    max-width: none;
+  }
+
   .disciplines-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
 
-  .discipline-card .card-image { height: 140px; }
-  .discipline-card .card-content { padding: 16px 12px; }
-  .discipline-card .card-content h3 { font-size: 1.05rem; margin-bottom: 6px; }
-  .discipline-card .card-content p { font-size: 0.8rem; line-height: 1.35; }
+  .discipline-card .card-image {
+    height: 140px;
+  }
 
-  /* 5. NOTIZIE: SCHEDE ORIZZONTALI COMPATTE */
-  .news-grid { grid-template-columns: 1fr !important; gap: 12px; }
-  .news-card { flex-direction: row !important; align-items: center; padding: 10px; }
-  .news-img { width: 100px !important; height: 80px !important; min-width: 100px; border-radius: 8px; border-bottom: none !important; }
-  .news-text { padding: 0 0 0 14px !important; justify-content: center; }
-  .news-title { font-size: 0.88rem !important; margin-bottom: 6px !important; -webkit-line-clamp: 2 !important; }
-  .news-date { font-size: 0.7rem !important; }
+  .discipline-card .card-content {
+    padding: 16px 12px;
+  }
+
+  .discipline-card .card-content h3 {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+  }
+
+  .discipline-card .card-content p {
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .news-card {
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .news-img {
+    width: 100px;
+    height: 80px;
+    min-width: 100px;
+    aspect-ratio: auto;
+    border-radius: 8px;
+    border-bottom: none;
+  }
+
+  .news-text {
+    padding: 0 0 0 14px;
+    justify-content: center;
+  }
+
+  .news-title {
+    font-size: 0.88rem;
+    margin-bottom: 6px;
+    -webkit-line-clamp: 2;
+  }
+
+  .news-date {
+    font-size: 0.7rem;
+  }
+
+  .join-actions {
+    flex-direction: column;
+  }
+
+  .join-actions .btn-primary,
+  .join-actions .btn-secondary {
+    text-align: center;
+  }
 }
 
 @media (max-width: 650px) {
-  .timeline-container { grid-template-columns: 1fr; gap: 20px; }
-  .hero-cta { flex-direction: column; gap: 12px; }
+  .timeline-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    gap: 12px;
+  }
 }

@@ -3,58 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AERIS Technologies — polo studentesco indipendente di ricerca applicata al Politecnico di Milano. Progettiamo e portiamo in volo un UAV transonico/supersonico autonomo.">
+  <meta name="theme-color" content="#000000">
   <title>AERIS Technologies | PoliMi</title>
-  <!-- Ricordati di cambiare il v=5 in v=6 se il browser fa i capricci con la cache -->
-  <link rel="stylesheet" href="style.css?v=6">
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 
-  <!-- Navbar Glassmorphism -->
-  <nav class="apple-navbar">
+  <a href="#main-content" class="skip-link">Salta al contenuto</a>
+
+  <nav class="apple-navbar" aria-label="Navigazione principale">
     <div class="nav-content">
       <a href="#" class="logo">AERIS <span>Technologies</span></a>
       <ul class="nav-links">
         <li><a href="#mission">Mission</a></li>
         <li><a href="#disciplines">Divisioni</a></li>
         <li><a href="#roadmap">Roadmap</a></li>
-        <li><a href="#recruitment">Careers & Ops</a></li>
+        <li><a href="#recruitment">Careers &amp; Ops</a></li>
         <li><a href="mailto:aeris.polimi@gmail.com" class="btn-apple">Unisciti a noi</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Live Aerospace Feed Ticker -->
-  <div class="news-ticker-container">
-    <div class="ticker-side ticker-left">
-      <!-- Spazio vuoto a sinistra -->
-    </div>
-    
+  <div class="news-ticker-container" aria-hidden="true">
+    <div class="ticker-side ticker-left"></div>
+
     <div class="ticker-track-wrapper">
       <div class="ticker-track" id="ticker-track">
-        <!-- I titoli scorrevoli verranno iniettati qui dal JS -->
         <span class="ticker-item">Connessione al database aerospaziale in corso...</span>
       </div>
     </div>
-    
+
     <div class="ticker-side ticker-right">
-      <a href="#news-section" class="btn-ticker">NOTIZIE</a>
+      <a href="#news-section" class="btn-ticker" tabindex="-1">Notizie</a>
     </div>
   </div>
 
-  <!-- Hero Section Dinamica -->
   <header class="hero">
     <div class="hero-text fade-in">
-      <div class="tagline">POLITECNICO DI MILANO</div>
-      
-      <!-- Contenitore testi sovrapposti -->
+      <div class="tagline">Politecnico di Milano</div>
+
       <div class="title-container">
-        <h1 id="acronym">A.E.R.I.S.</h1>
-        <h1 id="full-text">Aerospace Engineering,<br>Robotics & Integrated Systems.</h1>
+        <h1>
+          <span id="acronym">A.E.R.I.S.</span>
+          <span id="full-text">Aerospace Engineering,<br>Robotics &amp; Integrated Systems.</span>
+        </h1>
       </div>
-      
+
       <p class="subtitle">Polo studentesco di ricerca applicata. Dalla teoria accademica alla realizzazione ingegneristica di sistemi autonomi avanzati.</p>
 
-      <!-- Pulsanti Hero -->
       <div class="hero-cta">
         <a href="#recruitment" class="btn-primary">Partecipa alla Fondazione</a>
         <a href="#roadmap" class="btn-secondary">Scopri la Roadmap &darr;</a>
@@ -62,230 +59,256 @@
     </div>
   </header>
 
-  <!-- Sezione Mission -->
-  <section id="mission" class="mission-section scroll-reveal">
-    <div class="mission-header">
-      <span class="section-tag">MISSION // STATEMENT</span>
-      <h2>Il Nostro Obiettivo</h2>
-    </div>
+  <main id="main-content">
 
-    <div class="mission-card">
-      <p class="mission-lead">
-        "Offrire agli studenti l'opportunità unica di padroneggiare l'intero ciclo di vita di un sistema aerospaziale avanzato, dalla teoria al collaudo sul campo. Lavoriamo verso un traguardo ambizioso: progettare, costruire e portare in volo una piattaforma UAV capace di superare la barriera del suono."
-      </p>
+    <section id="mission" class="mission-section scroll-reveal" aria-labelledby="mission-title">
+      <div class="mission-header">
+        <span class="section-tag">Mission // Statement</span>
+        <h2 id="mission-title">Il Nostro Obiettivo</h2>
+      </div>
 
-      <div class="mission-divider"></div>
+      <div class="mission-card">
+        <p class="mission-lead">
+          “Offrire agli studenti l’opportunità unica di padroneggiare l’intero ciclo di vita di un sistema aerospaziale avanzato, dalla teoria al collaudo sul campo. Lavoriamo verso un traguardo ambizioso: progettare, costruire e portare in volo una piattaforma UAV capace di superare la barriera del suono.”
+        </p>
 
-      <p class="mission-subtext">
-        Non ci limitiamo alla teoria: impariamo misurandoci direttamente con sfide ingegneristiche reali. In AERIS ogni membro sviluppa una comprensione concreta dell'intero ciclo di progettazione, calcolo e collaudo, costruendo competenze pratiche e metodologiche indispensabili per il panorama aerospaziale di domani.
-      </p>
-    </div>
-  </section>
+        <div class="mission-divider" aria-hidden="true"></div>
 
-  <!-- Sezione Roadmap / Flight Plan -->
-  <section id="roadmap" class="roadmap-section scroll-reveal">
-    <div class="section-heading">
-      <span class="section-tag" style="display: block; margin-bottom: 10px;">FLIGHT PLAN &amp; MILESTONES</span>
-      <h2>Roadmap di Sviluppo</h2>
-    </div>
+        <p class="mission-subtext">
+          Non ci limitiamo alla teoria: impariamo misurandoci direttamente con sfide ingegneristiche reali. In AERIS ogni membro sviluppa una comprensione concreta dell’intero ciclo di progettazione, calcolo e collaudo, costruendo competenze pratiche e metodologiche indispensabili per il panorama aerospaziale di domani.
+        </p>
+      </div>
+    </section>
 
-    <div class="timeline-container">
-      <!-- Fase 01 -->
-      <div class="timeline-item">
-        <div class="timeline-marker">
-          <span class="marker-dot active-dot"></span>
-          <span class="marker-line"></span>
-        </div>
-        <div class="timeline-content active-phase">
-          <div class="phase-meta active-text">FASE 01 &middot; IN PROGRESS</div>
-          <h3>System Architecture &amp; Setup</h3>
-          <ul class="timeline-list">
-            <li><strong>Setup Operativo:</strong> Definizione dell'architettura di base, pipeline di calcolo CAD/FEM/CFD e protocolli di controllo versione.</li>
-            <li><strong>Strutturazione Team:</strong> Schieramento delle divisioni tecniche (Aerodinamica, Strutture, Avionica, Software).</li>
-            <li><strong>Network Istituzionale:</strong> Accesso a banchi di lavoro universitari e convenzioni tecniche per licenze software, laboratori e componentistica.</li>
-          </ul>
+    <section id="roadmap" class="roadmap-section scroll-reveal" aria-labelledby="roadmap-title">
+      <div class="section-heading">
+        <span class="section-tag">Flight Plan &amp; Milestones</span>
+        <h2 id="roadmap-title">Roadmap di Sviluppo</h2>
+      </div>
+
+      <div class="timeline-container">
+        <article class="timeline-item">
+          <div class="timeline-marker" aria-hidden="true">
+            <span class="marker-dot active-dot"></span>
+            <span class="marker-line"></span>
+          </div>
+          <div class="timeline-content active-phase">
+            <div class="phase-meta active-text">Fase 01 · In Progress</div>
+            <h3>System Architecture &amp; Setup</h3>
+            <ul class="timeline-list">
+              <li><strong>Setup Operativo:</strong> Definizione dell’architettura di base, pipeline di calcolo CAD/FEM/CFD e protocolli di controllo versione.</li>
+              <li><strong>Strutturazione Team:</strong> Schieramento delle divisioni tecniche (Aerodinamica, Strutture, Avionica, Software).</li>
+              <li><strong>Network Istituzionale:</strong> Accesso a banchi di lavoro universitari e convenzioni tecniche per licenze software, laboratori e componentistica.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-marker" aria-hidden="true">
+            <span class="marker-dot"></span>
+            <span class="marker-line"></span>
+          </div>
+          <div class="timeline-content">
+            <div class="phase-meta">Fase 02 · 0.3 – 0.5 Mach</div>
+            <h3>Prototyping &amp; Envelope Expansion</h3>
+            <ul class="timeline-list">
+              <li><strong>Dimostratori di Scala:</strong> Realizzazione di vettori subsonici per validare in aria la correlazione con i modelli numerici.</li>
+              <li><strong>Avionica &amp; DAQ:</strong> Validazione delle superfici di controllo, acquisizione dati ad alta frequenza e telemetria in tempo reale.</li>
+              <li><strong>Stress Test Strutturali:</strong> Prove sperimentali di carico statico e dinamico sui laminati compositi e componenti critici.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-marker" aria-hidden="true">
+            <span class="marker-dot"></span>
+            <span class="marker-line"></span>
+          </div>
+          <div class="timeline-content">
+            <div class="phase-meta">Fase 03 · Mach 1.0+</div>
+            <h3>Transonic Flight &amp; Supersonic Target</h3>
+            <ul class="timeline-list">
+              <li><strong>Shock Wave Analysis:</strong> Gestione fluidodinamica delle instabilità e delle onde d’urto nei regimi ad alta comprimibilità.</li>
+              <li><strong>Propulsione &amp; Struttura:</strong> Integrazione avanzata del sistema propulsivo e ottimizzazione aerotermomeccanica del telaio.</li>
+              <li><strong>Flight Control Attivo:</strong> Campagna di test con algoritmi dedicati di stabilizzazione d’assetto in tempo reale.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-marker" aria-hidden="true">
+            <span class="marker-dot"></span>
+          </div>
+          <div class="timeline-content">
+            <div class="phase-meta">Fase 04 · Knowledge &amp; Collaboration</div>
+            <h3>Applied Research &amp; Industrial Ecosystem</h3>
+            <ul class="timeline-list">
+              <li><strong>Polo di Sperimentazione:</strong> Consolidamento del team come punto di riferimento studentesco per la prototipazione supersonica.</li>
+              <li><strong>Ricerca Accademica:</strong> Sviluppo di tesi sperimentali, paper scientifici e attività congiunte con i laboratori d’ateneo.</li>
+              <li><strong>Partnership Tecnologiche:</strong> Sviluppo congiunto di soluzioni e validazione sul campo con realtà del settore aerospaziale.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="disciplines" class="disciplines-section" aria-labelledby="disciplines-title">
+      <div class="section-heading scroll-reveal">
+        <span class="section-tag">Aree di Ricerca &amp; Gestione</span>
+        <h2 id="disciplines-title">Divisioni Operative</h2>
+      </div>
+
+      <div class="filter-bar scroll-reveal" role="toolbar" aria-label="Filtra le divisioni operative">
+        <button type="button" class="filter-chip is-active" data-filter="all" aria-pressed="true">Tutte</button>
+        <button type="button" class="filter-chip" data-filter="strutture" aria-pressed="false">Strutture</button>
+        <button type="button" class="filter-chip" data-filter="aero" aria-pressed="false">Aero &amp; Prop</button>
+        <button type="button" class="filter-chip" data-filter="avionica" aria-pressed="false">Avionica</button>
+        <button type="button" class="filter-chip" data-filter="software" aria-pressed="false">Software</button>
+        <button type="button" class="filter-chip" data-filter="media" aria-pressed="false">Media</button>
+        <button type="button" class="filter-chip" data-filter="corporate" aria-pressed="false">Corporate</button>
+      </div>
+
+      <div class="disciplines-grid" id="disciplines-grid">
+        <article class="discipline-card scroll-reveal" data-division="strutture">
+          <div class="card-image">
+            <img src="Photos_AERIS/carbon_fiber.jpg" alt="Laminati in fibra di carbonio per strutture composite" loading="lazy" decoding="async">
+          </div>
+          <div class="card-content">
+            <h3>Strutture &amp; Materiali</h3>
+            <p>Modellazione CAD parametrica, validazione delle scelte progettuali, calcolo strutturale FEM e test di fatica sui materiali per resistere ad alti carichi.</p>
+          </div>
+        </article>
+
+        <article class="discipline-card scroll-reveal" data-division="aero">
+          <div class="card-image">
+            <img src="Photos_AERIS/CFD.jpg" alt="Simulazione CFD di un profilo aerodinamico" loading="lazy" decoding="async">
+          </div>
+          <div class="card-content">
+            <h3>Aerodinamica &amp; Propulsione</h3>
+            <p>Simulazioni CFD avanzate, studio e ottimizzazione dei profili alari. Analisi termofluidodinamica e integrazione del sistema propulsivo nel telaio.</p>
+          </div>
+        </article>
+
+        <article class="discipline-card scroll-reveal" data-division="avionica">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Schede elettroniche e circuiti per sistemi avionici" loading="lazy" decoding="async">
+          </div>
+          <div class="card-content">
+            <h3>Elettronica &amp; Avionica</h3>
+            <p>Progettazione di schede logiche dedicate, implementazione della sensoristica di bordo, cablaggi schermati e sistemi hardware per l’acquisizione dati.</p>
+          </div>
+        </article>
+
+        <article class="discipline-card scroll-reveal" data-division="software">
+          <div class="card-image">
+            <img src="Photos_AERIS/UAV.jpg" alt="Piattaforma UAV autonoma in contesto di volo" class="img-uav" loading="lazy" decoding="async">
+          </div>
+          <div class="card-content">
+            <h3>Software &amp; Controlli</h3>
+            <p>Sviluppo del codice di volo, implementazione di algoritmi per la stabilizzazione e il controllo spaziale, gestione e pulizia dei dati acquisiti durante i test.</p>
+          </div>
+        </article>
+
+        <article class="discipline-card scroll-reveal" data-division="media">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Postazione di sviluppo e produzione contenuti digitali" loading="lazy" decoding="async">
+          </div>
+          <div class="card-content">
+            <h3>Media &amp; Branding</h3>
+            <p>Gestione integrale del sito web, produzione di grafica e materiale fotografico. Promozione dell’identità dell’associazione e organizzazione eventi in campus.</p>
+          </div>
+        </article>
+
+        <article class="discipline-card scroll-reveal" data-division="corporate">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Analisi dati e gestione di partnership istituzionali" loading="lazy" decoding="async">
+          </div>
+          <div class="card-content">
+            <h3>Corporate &amp; Partnership</h3>
+            <p>Ricerca vitale di sponsor tecnici ed economici. Gestione della documentazione per l’Ateneo, stesura bilanci e allocazione strategica dei fondi ai reparti tecnici.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="news-section" class="news-section scroll-reveal" aria-labelledby="news-title">
+      <div class="section-heading">
+        <span class="section-tag">Global Aerospace Feed</span>
+        <h2 id="news-title">Notizie &amp; Aggiornamenti</h2>
+      </div>
+
+      <div class="news-toolbar">
+        <label class="news-search-wrap" for="news-search">
+          <span class="visually-hidden">Cerca nel feed notizie</span>
+          <input type="search" id="news-search" class="news-search" placeholder="Cerca nel feed…" autocomplete="off">
+        </label>
+        <div class="filter-bar news-filters" id="news-filters" role="toolbar" aria-label="Filtra le notizie per tema">
+          <button type="button" class="filter-chip is-active" data-news-filter="all" aria-pressed="true">Tutte</button>
         </div>
       </div>
 
-      <!-- Fase 02 -->
-      <div class="timeline-item">
-        <div class="timeline-marker">
-          <span class="marker-dot"></span>
-          <span class="marker-line"></span>
-        </div>
-        <div class="timeline-content">
-          <div class="phase-meta">FASE 02 &middot; 0.3 &ndash; 0.5 MACH</div>
-          <h3>Prototyping &amp; Envelope Expansion</h3>
-          <ul class="timeline-list">
-            <li><strong>Dimostratori di Scala:</strong> Realizzazione di vettori subsonici per validare in aria la correlazione con i modelli numerici.</li>
-            <li><strong>Avionica &amp; DAQ:</strong> Validazione delle superfici di controllo, acquisizione dati ad alta frequenza e telemetria in tempo reale.</li>
-            <li><strong>Stress Test Strutturali:</strong> Prove sperimentali di carico statico e dinamico sui laminati compositi e componenti critici.</li>
-          </ul>
-        </div>
+      <div class="news-grid" id="news-grid"></div>
+
+      <div class="news-actions">
+        <button type="button" id="toggle-news-btn" class="btn-secondary btn-expand" aria-expanded="false" hidden>Espandi &darr;</button>
       </div>
+    </section>
 
-      <!-- Fase 03 -->
-      <div class="timeline-item">
-        <div class="timeline-marker">
-          <span class="marker-dot"></span>
-          <span class="marker-line"></span>
+    <section id="recruitment" class="join-section scroll-reveal" aria-labelledby="recruitment-title">
+      <div class="join-panel">
+        <div class="join-content">
+          <span class="section-tag">Careers · AERIS Technologies</span>
+          <h2 id="recruitment-title">Partecipa alla Fondazione.</h2>
+          <p>Stiamo assemblando il primo nucleo operativo del team. Cerchiamo studenti motivati da qualsiasi percorso di studi — con un focus particolare su Ingegneria Aerospaziale, Meccanica, Elettronica, Informatica e Gestionale — per sviluppare da zero le nostre piattaforme di volo. Qualunque sia il tuo indirizzo, se hai competenze da mettere in campo e vuoi misurarti con sfide ingegneristiche reali, c’è un posto attivo per te.</p>
+
+          <div class="join-actions">
+            <a href="mailto:aeristech.team@gmail.com?subject=Candidatura%20Team%20AERIS" class="btn-primary">
+              Invia Candidatura &rarr;
+            </a>
+            <button type="button" class="btn-secondary" id="open-newsletter" aria-haspopup="dialog">
+              Briefing newsletter
+            </button>
+          </div>
         </div>
-        <div class="timeline-content">
-          <div class="phase-meta">FASE 03 &middot; MACH 1.0+</div>
-          <h3>Transonic Flight &amp; Supersonic Target</h3>
-          <ul class="timeline-list">
-            <li><strong>Shock Wave Analysis:</strong> Gestione fluidodinamica delle instabilità e delle onde d'urto nei regimi ad alta comprimibilità.</li>
-            <li><strong>Propulsione &amp; Struttura:</strong> Integrazione avanzata del sistema propulsivo e ottimizzazione aerotermomeccanica del telaio.</li>
-            <li><strong>Flight Control Attivo:</strong> Campagna di test con algoritmi dedicati di stabilizzazione d'assetto in tempo reale.</li>
-          </ul>
-        </div>
+
+        <aside class="join-telemetry" aria-label="Dati operativi">
+          <div class="spec-item">
+            <span class="spec-label">Headquarters</span>
+            <span class="spec-value">PoliMi Campus</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Target Candidati</span>
+            <span class="spec-value">BSc / MSc / PhD</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Stato Attuale</span>
+            <span class="spec-value">Founding Phase</span>
+          </div>
+        </aside>
       </div>
+    </section>
 
-      <!-- Fase 04 -->
-      <div class="timeline-item">
-        <div class="timeline-marker">
-          <span class="marker-dot"></span>
-        </div>
-        <div class="timeline-content">
-          <div class="phase-meta">FASE 04 &middot; KNOWLEDGE &amp; COLLABORATION</div>
-          <h3>Applied Research &amp; Industrial Ecosystem</h3>
-          <ul class="timeline-list">
-            <li><strong>Polo di Sperimentazione:</strong> Consolidamento del team come punto di riferimento studentesco per la prototipazione supersonica.</li>
-            <li><strong>Ricerca Accademica:</strong> Sviluppo di tesi sperimentali, paper scientifici e attività congiunte con i laboratori d'ateneo.</li>
-            <li><strong>Partnership Tecnologiche:</strong> Sviluppo congiunto di soluzioni e validazione sul campo con realtà del settore aerospaziale.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sezione Divisioni Operative (6 Reparti) -->
-  <section id="disciplines" class="disciplines-section">
-    <div class="section-heading scroll-reveal">
-      <span class="section-tag" style="display: block; margin-bottom: 10px;">AREE DI RICERCA &amp; GESTIONE</span>
-      <h2>Divisioni Operative</h2>
-    </div>
-    
-    <div class="disciplines-grid">
-      <div class="discipline-card scroll-reveal">
-        <div class="card-image">
-          <img src="Photos_AERIS/carbon_fiber.jpg" alt="Materiali Compositi">
-        </div>
-        <div class="card-content">
-          <h3>Strutture & Materiali</h3>
-          <p>Modellazione CAD parametrica, validazione delle scelte progettuali, calcolo strutturale FEM e test di fatica sui materiali per resistere ad alti carichi.</p>
-        </div>
-      </div>
-
-      <div class="discipline-card scroll-reveal">
-        <div class="card-image">
-          <img src="Photos_AERIS/CFD.jpg" alt="Simulazione CFD">
-        </div>
-        <div class="card-content">
-          <h3>Aerodinamica & Propulsione</h3>
-          <p>Simulazioni CFD avanzate, studio e ottimizzazione dei profili alari. Analisi termofluidodinamica e integrazione del sistema propulsivo nel telaio.</p>
-        </div>
-      </div>
-
-      <div class="discipline-card scroll-reveal">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800" alt="Progettazione Elettronica">
-        </div>
-        <div class="card-content">
-          <h3>Elettronica & Avionica</h3>
-          <p>Progettazione di schede logiche dedicate, implementazione della sensoristica di bordo, cablaggi schermati e sistemi hardware per l'acquisizione dati.</p>
-        </div>
-      </div>
-
-      <div class="discipline-card scroll-reveal">
-        <div class="card-image">
-          <img src="Photos_AERIS/UAV.jpg" alt="Sistemi Autonomi" class="img-uav">
-        </div>
-        <div class="card-content">
-          <h3>Software & Controlli</h3>
-          <p>Sviluppo del codice di volo, implementazione di algoritmi per la stabilizzazione e il controllo spaziale, gestione e pulizia dei dati acquisiti durante i test.</p>
-        </div>
-      </div>
-
-      <div class="discipline-card scroll-reveal">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800" alt="Sviluppo e Grafica">
-        </div>
-        <div class="card-content">
-          <h3>Media & Branding</h3>
-          <p>Gestione integrale del sito web, produzione di grafica e materiale fotografico. Promozione dell'identità dell'associazione e organizzazione eventi in campus.</p>
-        </div>
-      </div>
-
-      <div class="discipline-card scroll-reveal">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" alt="Gestione Dati Finanziari">
-        </div>
-        <div class="card-content">
-          <h3>Corporate & Partnership</h3>
-          <p>Ricerca vitale di sponsor tecnici ed economici. Gestione della documentazione per l'Ateneo, stesura bilanci e allocazione strategica dei fondi ai reparti tecnici.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sezione Notizie Estesa -->
-  <section id="news-section" class="news-section scroll-reveal">
-    <div class="section-heading">
-      <span class="section-tag" style="display: block; margin-bottom: 10px;">GLOBAL AEROSPACE FEED</span>
-      <h2>Notizie &amp; Aggiornamenti</h2>
-    </div>
-
-    <!-- La griglia dove finiranno le card -->
-    <div class="news-grid" id="news-grid">
-      <!-- Le card verranno generate automaticamente dal JavaScript -->
-    </div>
-
-    <div class="news-actions">
-      <button id="toggle-news-btn" class="btn-secondary btn-expand">Espandi &darr;</button>
-    </div>
-  </section>
-
-  <!-- Sezione Recruitment & Operational Data (Wide Panel) -->
-  <section id="recruitment" class="join-section scroll-reveal">
-    <div class="join-panel">
-      
-      <!-- Lato Sinistro: Call to Action -->
-      <div class="join-content">
-        <span class="section-tag" style="display: block; margin-bottom: 16px;">CAREERS &middot; AERIS TECHNOLOGIES</span>
-        <h2>Partecipa alla Fondazione.</h2>
-        <p>Stiamo assemblando il primo nucleo operativo del team. Cerchiamo studenti motivati da qualsiasi percorso di studi — con un focus particolare su Ingegneria Aerospaziale, Meccanica, Elettronica, Informatica e Gestionale — per sviluppare da zero le nostre piattaforme di volo. Qualunque sia il tuo indirizzo, se hai competenze da mettere in campo e vuoi misurarti con sfide ingegneristiche reali, c'è un posto attivo per te.</p>
-        
-        <div class="join-actions">
-          <a href="mailto:aeristech.team@gmail.com?subject=Candidatura%20Team%20AERIS" class="btn-primary">
-            Invia Candidatura &rarr;
-          </a>
-        </div>
-      </div>
-
-      <!-- Lato Destro: Dati Operativi Integrati -->
-      <div class="join-telemetry">
-        <div class="spec-item">
-          <span class="spec-label">HEADQUARTERS</span>
-          <span class="spec-value">PoliMi Campus</span>
-        </div>
-        <div class="spec-item">
-          <span class="spec-label">TARGET CANDIDATI</span>
-          <span class="spec-value">BSc / MSc / PhD</span>
-        </div>
-        <div class="spec-item">
-          <span class="spec-label">STATO ATTUALE</span>
-          <span class="spec-value">Founding Phase</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
+  </main>
 
   <footer class="site-footer">
     <p>&copy; 2026 AERIS Technologies. Associazione Studentesca Indipendente al Politecnico di Milano.</p>
+    <button type="button" class="footer-link" id="open-newsletter-footer">Iscriviti al briefing</button>
   </footer>
 
-  <script src="script.js"></script>
+  <dialog class="newsletter-dialog" id="newsletter-dialog" aria-labelledby="newsletter-title">
+    <form id="newsletter-form" class="newsletter-form" novalidate>
+      <button type="button" class="dialog-close" id="close-newsletter" aria-label="Chiudi finestra newsletter">&times;</button>
+      <span class="section-tag">Telemetry Briefing</span>
+      <h2 id="newsletter-title">Resta in orbita.</h2>
+      <p class="newsletter-copy">Aggiornamenti su recruiting, milestone di volo e partnership. Niente spam: solo segnali utili dal team AERIS.</p>
+      <label class="visually-hidden" for="newsletter-email">Indirizzo email</label>
+      <input type="email" id="newsletter-email" name="email" class="newsletter-input" placeholder="nome.cognome@mail.polimi.it" required autocomplete="email">
+      <p class="newsletter-error" id="newsletter-error" role="alert" hidden>Inserisci un indirizzo email valido.</p>
+      <button type="submit" class="btn-primary newsletter-submit">Iscriviti</button>
+      <p class="newsletter-note">I dati restano sul tuo dispositivo in questa fase di fondazione. Per candidarti usa il canale mail del team.</p>
+    </form>
+  </dialog>
+
+  <script src="script.js?v=8"></script>
 </body>
 </html>
