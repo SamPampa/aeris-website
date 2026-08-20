@@ -1169,6 +1169,12 @@ body {
     -webkit-overflow-scrolling: touch;
     margin-bottom: 20px;
     padding-bottom: 4px;
+
+    scrollbar-width: none; 
+  }
+
+  .filter-bar::-webkit-scrollbar {
+    display: none;
   }
 
   .filter-chip {
@@ -1176,12 +1182,14 @@ body {
   }
 
   .news-toolbar {
-    flex-direction: column;
     align-items: stretch;
+    box-sizing: border-box;
   }
 
   .news-search-wrap {
-    max-width: none;
+    width: 100%;
+    max-width: 100%; 
+    box-sizing: border-box;
   }
 
   .disciplines-grid {
